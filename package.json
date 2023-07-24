@@ -3,9 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev:mock": "vite --open --mode mock",
+    "dev": "vite --open --mode development",
+    "dev:linux": "vite --mode development",
     "build": "vue-tsc && vite build && electron-builder",
-    "preview": "vite preview"
+    "site:preview": "npm run build && cp -r dist _site",
+    "preview": "vite preview --mode test",
+    "test": "echo \"no test specified,work in process\"",
+    "test:coverage": "echo \"no test specified,work in process\"",
+    "lint": "eslint ./src --ext ts,tsx",
+    "lint:fix": "eslint ./src --ext ts,tsx --fix"
   },
   "dependencies": {
     "axios": "^1.4.0",
